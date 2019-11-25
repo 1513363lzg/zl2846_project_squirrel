@@ -28,7 +28,7 @@ class Squirrel(models.Model):
             )
     Shift = models.CharField(
             help_text=_("Shift of squirrel"),
-            choices = SHIFT_CHOICES,
+            choices=SHIFT_CHOICES,
             max_length=10,
             default=AM,
             )
@@ -48,6 +48,7 @@ class Squirrel(models.Model):
             help_text=_("Age of squirrel"), 
             choice=AGE_CHOICES, 
             max_length=15, 
+            default=Juvenile,
             )
     Gray = 'Gray' 
     Black = 'Black' 
@@ -60,7 +61,8 @@ class Squirrel(models.Model):
     Primary_fur_color = models.CharField(
             help_text=_("Primary fur color of squirrel"),
             choice=PRIMARYFURCOLOR_CHOICES, 
-            max_length=20, 
+            max_length=20,
+            default=Gray,
             ) 
     Highlight_fur_color = models.TextField( 
             help_text=_("Highlight fur color of squirrel, if it has more than on color, please intersect with ','"), 
@@ -83,7 +85,8 @@ class Squirrel(models.Model):
     Location = models.CharField( 
             help_text=_("location of squirrel"), 
             choice=LOCATION_CHOICES, 
-            max_length=20, 
+            max_length=20,
+            default=Ground Plane,
             ) 
     Above_Measure = models.TextField( 
             help_text=_("Above Ground Sighter Measurement"), 
@@ -110,7 +113,7 @@ class Squirrel(models.Model):
             ) 
     Other_Activities = models.TextField( 
             help_text=_("Other Activities of squirrel"), 
-            max_length=150, 
+            max_length=200, 
             ) 
     Kuks = models.BooleanField( 
             help_text=_("Kuks or not?"), 
