@@ -12,7 +12,7 @@ class Squirrel(models.Model):
             max_digits=30, 
             decimal_places=2, 
             ) 
-    Squirrel_ID = models.CharField(
+    Unique_squirrel_ID = models.CharField(
             help_text=_("Unique squirrel id"),
             max_length=50,
             )
@@ -29,7 +29,7 @@ class Squirrel(models.Model):
     Shift = models.CharField(
             help_text=_("Shift of squirrel"),
             choices=SHIFT_CHOICES,
-            max_length=10,
+            max_length=15,
             default=AM,
             )
     Date = models.IntegerField(
@@ -46,9 +46,9 @@ class Squirrel(models.Model):
             ) 
     Age = models.CharField( 
             help_text=_("Age of squirrel"), 
-            choice=AGE_CHOICES, 
+            choices=AGE_CHOICES, 
             max_length=15, 
-            default=Juvenile,
+            default=Adult,
             )
     Gray = 'Gray' 
     Black = 'Black' 
@@ -60,22 +60,10 @@ class Squirrel(models.Model):
             )
     Primary_fur_color = models.CharField(
             help_text=_("Primary fur color of squirrel"),
-            choice=PRIMARYFURCOLOR_CHOICES, 
+            choices=PRIMARYFURCOLOR_CHOICES, 
             max_length=20,
             default=Gray,
             ) 
-    Highlight_fur_color = models.TextField( 
-            help_text=_("Highlight fur color of squirrel, if it has more than on color, please intersect with ','"), 
-            max_length=100, 
-            ) 
-    Combination_color = models.TextField( 
-            help_text=_("Combination of fur color, please use'+'"), 
-            max_length=100, 
-            ) 
-    Color_notes = models.TextField( 
-            help_text=_("Color notes of squirrel"), 
-            max_length=150, 
-            )
     GroundPlane = 'Ground Plane' 
     AboveGround = 'Above Ground' 
     LOCATION_CHOICES = ( 
@@ -84,15 +72,12 @@ class Squirrel(models.Model):
             ) 
     Location = models.CharField( 
             help_text=_("location of squirrel"), 
-            choice=LOCATION_CHOICES, 
+            choices=LOCATION_CHOICES, 
             max_length=20,
-            default=Ground Plane,
-            ) 
-    Above_Measure = models.TextField( 
-            help_text=_("Above Ground Sighter Measurement"), 
-            max_length=20, 
-            ) 
-    Specific_location = models.TextFiled( 
+            default=GroundPlane,
+            )  
+             
+    Specific_location = models.CharField( 
             help_text=_("Specific location of squirrel"), 
             max_length=100, 
             ) 
@@ -111,9 +96,8 @@ class Squirrel(models.Model):
     Foraging = models.BooleanField( 
             help_text=_("Forage or not?"), 
             ) 
-    Other_Activities = models.TextField( 
-            help_text=_("Other Activities of squirrel"), 
-            max_length=200, 
+    Other_Activities = models.BooleanField( 
+            help_text=_("Does squirrel have other activities?"), 
             ) 
     Kuks = models.BooleanField( 
             help_text=_("Kuks or not?"), 
