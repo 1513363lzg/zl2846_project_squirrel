@@ -18,9 +18,8 @@ def all_squirrels(request,Squirrel_id):
     pet = Squirrel.objects.get(id=Squirrel_id)
     return HttpResponse(pet.Age)
 
-
-def squirrel_details(request,Squirrel_id):
-    pet = Squirrel.objects.get(id=pet_id)
+def squirrel_details(request, Squirrel_id):
+    pet = Squirrel.objects.get(id=Squirrel_id)
     return HttpResponse(pet.Age)
 
 
