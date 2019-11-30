@@ -1,5 +1,8 @@
 <ul>
         {% for Squirrel in Squirrels %}
 	<li><a href="/sightings/{{Squirrel.id}}/">{{Squirrel.Unique_squirrel_ID}}</a></li>
-        {% endfor %}
+        
+	{% endfor %}
+	<li><a href="/sightings/add/">{{'update'}}</a></li>
+	<li><a href="/sightings/stats/">{{'general_stats'}}</a></li>
 </ul>
