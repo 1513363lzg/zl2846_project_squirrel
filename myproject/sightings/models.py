@@ -123,6 +123,6 @@ class Squirrel(models.Model):
     Runs_from = models.BooleanField( 
             help_text=_("Runs from or not?"), 
             ) 
-def __str__(self): 
-    return self.Squirrel_ID 
+    def __str__(self): 
+        return self.Unique_squirrel_ID 
 # Create your models here.

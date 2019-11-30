@@ -9,19 +9,18 @@ def index(request):
             }
     return render(request, 'sightings/all.html', context)
 
-def add_squirrel(request,Squirrel_id):
-    pet = Squirrel.objects.get(id=Squirrel_id)
+def add_squirrel(request,Unique_squirrel_ID):
+    pet = Squirrel.objects.get(id=Unique_squirrel_ID)
     return HttpResponse(pet.Age)
 
 
-def all_squirrels(request,Squirrel_id):
-    pet = Squirrel.objects.get(id=Squirrel_id)
+def all_squirrels(request,Unique_squirrel_ID):
+    pet = Squirrel.objects.get(id=Unique_squirrel_ID)
     return HttpResponse(pet.Age)
 
 def squirrel_details(request, Squirrel_id):
     pet = Squirrel.objects.get(id=Squirrel_id)
-    return HttpResponse(pet.Age)
-
+    return HttpResponse({'Age: %a' %pet.Age,' Date: %a' %pet.Date})
 
 
 
