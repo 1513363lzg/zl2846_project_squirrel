@@ -1,5 +1,6 @@
 from django.db import models 
-from django.utils.translation import gettext as _ 
+from django.utils.translation import gettext as _
+import numpy as np
    # Create your models here. 
 class Squirrel(models.Model): 
     Latitude = models.DecimalField( 
@@ -32,8 +33,9 @@ class Squirrel(models.Model):
             max_length=15,
             default=AM,
             )
-    Date = models.IntegerField(
+    Date = models.CharField(
             help_text=_("sighting session day and month"),
+            max_length=10,
             )
     Hectare_squirrel_num = models.SmallIntegerField(
             help_text=_("number within the chronological sequence of squirrel sightings"), 
@@ -48,7 +50,7 @@ class Squirrel(models.Model):
             help_text=_("Age of squirrel"), 
             choices=AGE_CHOICES, 
             max_length=15, 
-            default=Adult,
+            default=np.nan,
             )
     Gray = 'Gray' 
     Black = 'Black' 
@@ -62,7 +64,7 @@ class Squirrel(models.Model):
             help_text=_("Primary fur color of squirrel"),
             choices=PRIMARYFURCOLOR_CHOICES, 
             max_length=20,
-            default=Gray,
+            default=np.nan,
             ) 
     GroundPlane = 'Ground Plane' 
     AboveGround = 'Above Ground' 
@@ -74,15 +76,17 @@ class Squirrel(models.Model):
             help_text=_("location of squirrel"), 
             choices=LOCATION_CHOICES, 
             max_length=20,
-            default=GroundPlane,
+            default=np.nan,
             )  
              
     Specific_location = models.CharField( 
             help_text=_("Specific location of squirrel"), 
             max_length=100, 
+            default=np.nan
             ) 
     Running = models.BooleanField( 
-            help_text=_("run or not?"), 
+            help_text=_("run or not?"),
+            
             ) 
     Chasing = models.BooleanField( 
             help_text=_("chase or not?"), 
@@ -96,8 +100,10 @@ class Squirrel(models.Model):
     Foraging = models.BooleanField( 
             help_text=_("Forage or not?"), 
             ) 
-    Other_Activities = models.BooleanField( 
+    Other_Activities = models.CharField( 
             help_text=_("Does squirrel have other activities?"), 
+            max_length=100,
+            default=np.nan
             ) 
     Kuks = models.BooleanField( 
             help_text=_("Kuks or not?"), 
