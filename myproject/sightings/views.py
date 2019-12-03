@@ -1,5 +1,6 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse_lazy
+from django.urls import reverse
+from django import forms
 
 from django.http import HttpResponse
 from django.shortcuts import render
