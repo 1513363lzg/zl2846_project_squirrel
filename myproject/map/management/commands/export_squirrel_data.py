@@ -22,7 +22,7 @@ class Command(BaseCommand):
                         
 
             for squirrel in squirrels:
-                    writer.writerow(list(Squirrel.objects.get_or_create(
+                    writer.writerow(list(Squirrel.objects.get(
                     Latitude,Longitude,
                     Unique_Squirrel_ID,
                     Hectare,

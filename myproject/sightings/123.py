@@ -3,7 +3,7 @@ from django.utils.translation import gettext as _
 import numpy as np
    # Create your models here. 
 class Squirrel(models.Model): 
-    Latitude = models.DecimalField( 
+    Latitude= models.DecimalField( 
             help_text=_("Latitude of squirrel"), 
             max_digits=30, 
             decimal_places=2, 
@@ -33,10 +33,10 @@ class Squirrel(models.Model):
             max_length=15,
             default=AM,
             )
-    Date = models.CharField(
-            help_text=_("sighting session day and month"),
-            max_length=10,
-            )
+    Date = models.DateField(
+             help_text=_('Date'),
+             null=True,
+             )
     Hectare_squirrel_num = models.SmallIntegerField(
             help_text=_("number within the chronological sequence of squirrel sightings"), 
             ) 
@@ -83,52 +83,46 @@ class Squirrel(models.Model):
             help_text=_("Specific location of squirrel"), 
             max_length=100, 
             default=np.nan
-            ) 
-    Running = models.BooleanField( 
-            help_text=_("run or not?"),
-            
-            ) 
-    Chasing = models.BooleanField( 
-            help_text=_("chase or not?"), 
-            ) 
-    Climbing = models.BooleanField( 
-            help_text=_("Climb or not?"), 
-            ) 
-    Eating = models.BooleanField( 
-            help_text=_("Eat or not?"), 
             )
-    Foraging = models.BooleanField( 
-            help_text=_("Forage or not?"), 
-            ) 
+    TRUE='TRUE'
+    FALSE='FALSE'
+    Running = models.CharField(help_text=_('Running'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Chasing = models.CharField(help_text=_('Chasing'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Climbing = models.CharField(help_text=_('Climbing'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Eating = models.CharField(help_text=_('Eating'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Foraging = models.CharField(help_text=_('Foraging'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    
+
+
     Other_Activities = models.CharField( 
             help_text=_("Does squirrel have other activities?"), 
             max_length=100,
-            default=np.nan
-            ) 
-    Kuks = models.BooleanField( 
-            help_text=_("Kuks or not?"), 
-            ) 
-    Quaas = models.BooleanField( 
-            help_text=_("Quaas or not?"), 
-            ) 
-    Moans = models.BooleanField( 
-            help_text=_("Moans or not?"), 
-            ) 
-    Tail_flags = models.BooleanField( 
-            help_text=_("Tail flags or not?"), 
-            ) 
-    Tail_twitches = models.BooleanField( 
-            help_text=_("Tail twitches or not?"), 
-            ) 
-    Approaches = models.BooleanField( 
-            help_text=_("Approaches or not?"), 
-            ) 
-    Indifferent = models.BooleanField( 
-            help_text=_("Indifferent or not?"), 
-            ) 
-    Runs_from = models.BooleanField( 
-            help_text=_("Runs from or not?"), 
-            ) 
+            null=True,
+            blank=True,
+            )
+
+    Kuks = models.CharField(help_text=_('Kuks'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Quaas = models.CharField(help_text=_('Quaas'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Moans = models.CharField(help_text=_('Moans'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Tail_Flags = models.CharField(help_text=_('Tail flags'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Tail_Twitches = models.CharField(help_text=_('Tail twitches'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Approaches = models.CharField(help_text=_('Approaches'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Indifferent = models.CharField(help_text=_('Indifferent'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+    Runs_From = models.CharField(help_text=_('Runs from'),
+            choices=((TRUE,'TRUE'),(FALSE,'FALSE')),default=FALSE,max_length=5,null=True)
+
     def __str__(self): 
         return self.Unique_squirrel_ID 
 # Create your models here.
