@@ -2,13 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
 import numpy as np
 
-from django.forms import ModelForm
-class Form(ModelForm):
-    class Meta:
-        model = Squirrel
-        fields = '__all__'
 
-   # Create your models here. 
 class Squirrel(models.Model): 
     Latitude= models.DecimalField( 
             help_text=_("Latitude of squirrel"), 

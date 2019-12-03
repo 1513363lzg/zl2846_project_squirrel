@@ -16,10 +16,6 @@ def add_squirrel(request):
     return HttpResponse('we need to create a new html for edit')
 
 #just an example
-class Delete(DeleteView):
-    model = Squirrel
-    success_url = reverse_lazy('')
-
 def all_squirrels(request):
     return HttpResponse('list all squirrels information')
 
