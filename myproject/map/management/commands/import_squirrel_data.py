@@ -1,45 +1,49 @@
 from django.core.management.base import BaseCommand, CommandError
-from sightings.models import Squirrel as S
+from sightings.models import Squirrel
 import pandas as pd 
 import os
-
+import re, sys, requests, csv
+from datetime import date
 class Command(BaseCommand):
     help = 'Closes the specified poll for voting'
         # Positional arguments
     def add_arguments(self, parser):
-        parser.add_argument('file_path', type=str)
+        parser.add_argument('path', type=str)
 
     def handle(self, *args, **options):
-        a=pd.read_csv(os.getcwd()+options['file_path'])
-        column=a.columns
-        for i in range(len(a)):
-            p=S(
-                Latitude=a.iloc[i]['y'],
-                Longitude=a.iloc[i]['x'],
-                Unique_squirrel_ID=a.iloc[i][column[2]],
-               Hectare=a.iloc[i][column[3]],
-                Shift=a.iloc[i][column[4]],
-    Date=a.iloc[i][column[5]]    ,
-    Hectare_squirrel_num=a.iloc[i][column[6]],    
-    Age=a.iloc[i][column[7]],
-    Primary_fur_color=a.iloc[i][column[8]],        
-    Location=a.iloc[i]['location'],    
-    Specific_location=a.iloc[i][column[14]],
-    Running=a.iloc[i]['running'],    
-    Chasing=a.iloc[i]['chasing'],   
-    Climbing=a.iloc[i]['climbing'],    
-    Eating=a.iloc[i]['eating'],
-    Foraging=a.iloc[i]['foraging'],
-    Other_Activities=a.iloc[i]['other_activities'],
-    Kuks=a.iloc[i]['kuks'],    
-    Quaas=a.iloc[i]['quaas'],    
-    Moans=a.iloc[i]['moans'],    
-    Tail_flags=a.iloc[i]['tail_flags'],    
-    Tail_twitches=a.iloc[i]['tail_twitches'],
-    Approaches=a.iloc[i]['approaches'],    
-    Indifferent =a.iloc[i]['indifferent'],   
-    Runs_from =a.iloc[i]['runs_from'],   
-    )
-            p.save()        
+        path = options['path']
+        pattern = re.compile(r'(\d{2})(\d{2})(\d{4})')
 
+        with open(path) as f:
+            data = csv.DictReader(f)
+            for row in data :
+                i,j,k = pattern.match(row.get('date')).groups()
+                obj, created = Squirrel.objects.get_or_create(
+                    Latitude = row.get('y'),
+                    Longitude = row.get('x'),
+                    Unique_squirrel_ID = row.get('unique_squirrel_id'),
+                    Hectare = row.get('hectare'),
+                    Shift = row.get('shift'),
+                    Date = date(int(k),int(i),int(j)),
+                    Hectare_squirrel_num = row.get('hectare_squirrel_number'),
+                    Age = row.get('age'),
+                    Primary_fur_color = row.get('primary_fur_color'),
+                    Location = row.get('location'),
+                    Specific_location = row.get('specific_location'),
+                    Chasing = row.get('chasing'),
+                    Running = row.get('running'),
+                    Climbing = row.get('climbing'),
+                    Eating = row.get('eating'),
+                    Foraging = row.get('foraging'),
+                    Other_Activities = row.get('other_activities'),
+                    Kuks = row.get('kuks'),
+                    Quaas = row.get('quaas'),
+                    Moans = row.get('moans'),
+                    Tail_Flags = row.get('tail_flags'),
+                    Tail_Twitches = row.get('tail_twitches'),
+                    Approaches = row.get('approaches'),
+                    Indifferent = row.get('indifferent'),
+                    Runs_From = row.get('runs_from'),
+    )
+        self.stdout.write(self.style.SUCCESS(f'Successfully import squirrel data from {path}'))
 
