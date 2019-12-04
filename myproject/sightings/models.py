@@ -7,12 +7,12 @@ class Squirrel(models.Model):
     Latitude= models.DecimalField( 
             help_text=_("Latitude of squirrel"), 
             max_digits=30, 
-            decimal_places=2, 
+            decimal_places=20, 
             ) 
     Longitude = models.DecimalField(
             help_text=_("Longitude of squirrel"), 
             max_digits=30, 
-            decimal_places=2, 
+            decimal_places=20, 
             ) 
     Unique_squirrel_ID = models.CharField(
             help_text=_("Unique squirrel id"),
