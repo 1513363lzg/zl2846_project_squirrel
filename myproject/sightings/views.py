@@ -3,7 +3,7 @@ from django.urls import reverse
 from django import forms
 
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Squirrel
 def index(request):
     Squirrels = Squirrel.objects.all()
@@ -21,6 +21,12 @@ def all_squirrels(request):
 def squirrel_details(request,Unique_squirrel_ID):
     pet = Squirrel.objects.get(id=Unique_squirrel_ID)
     return HttpResponse({'Age: %a' %pet.Age,' Date: %a' %pet.Date})
+
+def squirrel_details(request,Unique_squirrel_ID):
+    a = Squirrel.objects.get(Unique_squirrel_ID=Unique_squirrel_ID)
+    if request.method="POST":
+        a.delete()
+        return redirect('index')
 
 def squirrel_stats(request):
     sightings_stats1=Squirrel.objects.all().count()
