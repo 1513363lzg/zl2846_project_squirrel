@@ -38,3 +38,18 @@ def squirrel_stats(request):
             }
     return render(request, 'sightings/stats.html', context)
 
+def edit_pet(request,Unique_squirrel_ID):
+    pet=Squirrel.objects.get(id=Unique_squirrel_ID)
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST,instance=pet)
+    # check data with form
+        if form.is_valid():
+            form.save()
+            return redirect(f'sightings/{Unique_squirrel_ID}')
+    else:
+        form = SquirrelForm(instance=pet)
+        context ={
+                'form':form,
+            }
+    return render (request,'sightings/edit.html',context)
+
