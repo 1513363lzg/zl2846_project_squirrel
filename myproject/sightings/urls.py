@@ -5,8 +5,8 @@ from . import views
 urlpatterns =[
         path('', views.index),
         path('stats/', views.squirrel_stats),
-        path('<int:Unique_squirrel_ID>/', views.squirrel_details),
-        path('<int:Unique_squirrel_ID>/edit/', views.edit_pet),
-        
+      #  path('<int:Unique_squirrel_ID>/', views.squirrel_details),
+        path('<int:Unique_squirrel_ID>/', views.edit_squirrel),
+        path('add/', views.add_squirrel), 
         ]
 
