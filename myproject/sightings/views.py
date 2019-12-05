@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from django import forms
-
+from .forms import SquirrelForm
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Squirrel
@@ -42,4 +42,20 @@ def squirrel_stats(request):
             'sightings_stats5':sightings_stats5,
             }
     return render(request, 'sightings/stats.html', context)
+
+
+def edit_pet(request,pet_id):
+    pet=Pet.objects.get(id=pet_id)
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST,instance=pet)
+    # check data with form 
+        if form.is_valid():
+            form.save()
+            return redirect(f'sightings/{pet_id}')
+    else:
+        form = SquirrelForm(instance=pet)
+        context ={
+                'form':form,
+            }
+    return render (request,'sightings/edit.html',context)
 
