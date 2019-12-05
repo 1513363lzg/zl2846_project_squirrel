@@ -1,7 +1,7 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse
 from django import forms
-from .forms import SquirrelForm
+
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from .models import Squirrel
@@ -12,6 +12,11 @@ def index(request):
             }
     return render(request, 'sightings/all.html', context)
 
+def add_squirrel(request):
+    return HttpResponse('we need to create a new html for edit')
+
+def all_squirrels(request):
+    return HttpResponse('list all squirrels information')
 
 def squirrel_details(request,Unique_squirrel_ID):
     pet = Squirrel.objects.get(id=Unique_squirrel_ID)
@@ -32,34 +37,4 @@ def squirrel_stats(request):
             'sightings_stats5':sightings_stats5,
             }
     return render(request, 'sightings/stats.html', context)
-
-
-def edit_pet(request,Unique_squirrel_ID):
-    pet=Squirrel.objects.get(id=Unique_squirrel_ID)
-    if request.method == 'POST':
-        form = SquirrelForm(request.POST,instance=pet)
-    # check data with form 
-        if form.is_valid():
-            form.save()
-            return redirect(f'sightings/{Unique_squirrel_ID}')
-    else:
-        form = SquirrelForm(instance=pet)
-        context ={
-                'form':form,
-            }
-    return render (request,'sightings/edit.html',context)
-
-def add_pet(request):
-    if request.method == 'POST':
-        form = SquirrelForm(request.POST)
-    # check data with form 
-        if form.is_valid():
-            form.save()
-            return redirect(f'/sightings/list')
-    else:
-        form = SquirrelForm()
-        context ={
-                'form':form,
-            }
-    return render (request,'sightings/edit.html',context)
 
