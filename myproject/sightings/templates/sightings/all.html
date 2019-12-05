@@ -1,8 +1,18 @@
+<!doctype html>
+<html>
+<head>
+        <title> Squirrel Sightings </title> 
+</head>
+<body>
 <ul>
+	<li><a href="/sightings/add/">Add</a></li>
+        <li><a href="/sightings/stats/">sightings_stats</a></li>
         {% for Squirrel in Squirrels %}
 	<li><a href="/sightings/{{Squirrel.id}}/">{{Squirrel.Unique_squirrel_ID}}</a></li>
         
 	{% endfor %}
-	<li><a href="/sightings/add/">{{'update'}}</a></li>
-	<li><a href="/sightings/stats/">sightings_stats</a></li>
+
 </ul>
+
+</body>
+</html>
