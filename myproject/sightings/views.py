@@ -12,25 +12,6 @@ def index(request):
             }
     return render(request, 'sightings/all.html', context)
 
-<<<<<<< HEAD
-=======
-def add_squirrel(request):
-    if request.method == 'POST':
-        form = SquirrelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect(f'/sightings')
-    else:
-        form = SquirrelForm()
-
-    context = {
-            'form': form,
-    }
-    return render(request, 'sightings/edit.html', context)
-
-def all_squirrels(request):
-    return HttpResponse('list all squirrels information')
->>>>>>> 65f0ada7919a03f247ef839b65c4c74f1b72de6a
 
 def squirrel_details(request,Unique_squirrel_ID):
     pet = Squirrel.objects.get(id=Unique_squirrel_ID)
