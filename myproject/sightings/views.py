@@ -49,17 +49,4 @@ def edit_pet(request,Unique_squirrel_ID):
             }
     return render (request,'sightings/edit.html',context)
 
-def add_pet(request):
-    if request.method == 'POST':
-        form = SquirrelForm(request.POST)
-    # check data with form 
-        if form.is_valid():
-            form.save()
-            return redirect(f'/sightings/list')
-    else:
-        form = SquirrelForm()
-        context ={
-                'form':form,
-            }
-    return render (request,'sightings/edit.html',context)
 
