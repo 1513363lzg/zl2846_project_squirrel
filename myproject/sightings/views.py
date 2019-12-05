@@ -23,8 +23,8 @@ def squirrel_details(request,Unique_squirrel_ID):
     return HttpResponse({'Age: %a' %pet.Age,' Date: %a' %pet.Date})
 
 def squirrel_details(request,Unique_squirrel_ID):
-    a = Squirrel.objects.get(Unique_squirrel_ID=Unique_squirrel_ID)
-    if request.method="POST":
+    a = Squirrel.objects.get(id=Unique_squirrel_ID)
+    if request.method =="POST":
         a.delete()
         return redirect('index')
 
