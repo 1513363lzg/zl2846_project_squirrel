@@ -13,7 +13,18 @@ def index(request):
     return render(request, 'sightings/all.html', context)
 
 def add_squirrel(request):
-    return HttpResponse('we need to create a new html for edit')
+    if request.method == 'POST':
+        form = SquirrelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(f'/sightings')
+    else:
+        form = SquirrelForm()
+
+    context = {
+            'form': form,
+    }
+    return render(request, 'sightings/edit.html', context)
 
 def all_squirrels(request):
     return HttpResponse('list all squirrels information')
