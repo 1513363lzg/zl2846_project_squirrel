@@ -8,16 +8,13 @@ from .models import Squirrel
 def index(request):
     
     squirrels = Squirrel.objects.all()
-    fields = ['Unique_Squirrel_ID','Date','Lat_Long']
+    fields = ['Unique_Squirrel_ID','Date','Latitude','Longitude','Hectare','Age','Primary_fur_color','Location','Specific_location','Running','Chasing','Climbing','Eating','Foraging','Other_Activities','Kuks','Quaas','Moans','Tail_Flags','Tail_Twitches','Approaches','Indifferent','Runs_From']
     context={
         'squirrels':squirrels,
         'fields':fields,
     }    
     return render(request,'sightings/all.html',context)
 
-def squirrel_details(request,Unique_squirrel_ID):
-    pet = Squirrel.objects.get(id=Unique_squirrel_ID)
-    return render(request, 'sightings/stats.html', context)
 
 
 def squirrel_stats(request):
@@ -42,7 +39,7 @@ def edit_squirrel(request,Unique_squirrel_ID):
     # check data with form
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{Unique_squirrel_ID}')
+            return redirect(f'/sightings/')
     else:
         form = SquirrelForm(instance=pet)
         context ={
@@ -52,6 +49,13 @@ def edit_squirrel(request,Unique_squirrel_ID):
 def add_squirrel(request):
     if request.method == 'POST':
         form = SquirrelForm(request.POST)
+    # check data with form
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings')
+            return redirect(f'/sightings/')
+    else:
+        form = SquirrelForm()
+        context ={
+                'form':form,
+            }
+    return render (request,'sightings/edit.html',context)

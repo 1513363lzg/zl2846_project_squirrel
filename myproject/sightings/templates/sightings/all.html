@@ -23,7 +23,7 @@
   </a>
   <br>
   <br>
-  <p>Search the table for Unique Squirrel ID, Date, Lat/Long:</p>
+  <p>Search the table for Unique squirrel ID, Date</p>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
   <p>Click on link to edit sighting</p>
@@ -39,9 +39,29 @@
     <tbody id="myTable">
       {% for squirrel in squirrels %}
         <tr>
-	  <td><a href="{{squirrel.Unique_Squirrel_ID}}">{{squirrel.Unique_Squirrel_ID}}</a></td>
+	  <td><a href="{{squirrel.id}}">{{squirrel.Unique_squirrel_ID}}</a></td>
 	  <td>{{squirrel.Date}}</td>
-	  <td>{{squirrel.Lat_Long}}</td>
+	  <td>{{squirrel.Latitude}}</td>
+	  <td>{{squirrel.Longitude}}</td>
+	  <td>{{squirrel.Hectare}}</td>
+	  <td>{{squirrel.Age}}</td>
+	  <td>{{squirrel.Primary_fur_color}}</td>
+	  <td>{{squirrel.Location}}</td>
+	  <td>{{squirrel.Specific_location}}</td>
+	  <td>{{squirrel.Running}}</td>
+	  <td>{{squirrel.Chasing}}</td>
+	  <td>{{squirrel.Climbing}}</td>
+	  <td>{{squirrel.Eating}}</td>
+	  <td>{{squirrel.Foraging}}</td>
+	  <td>{{squirrel.Other_Activities}}</td>
+	  <td>{{squirrel.Kuks}}</td>
+	  <td>{{squirrel.Quaas}}</td>
+	  <td>{{squirrel.Moans}}</td>
+	  <td>{{squirrel.Tail_Flags}}</td>
+	  <td>{{squirrel.Tail_Twitches}}</td>
+	  <td>{{squirrel.Approaches}}</td>
+	  <td>{{squirrel.Indifferent}}</td>
+	  <td>{{squirrel.Runs_From}}</td>
         </tr>
       {% endfor %}
     </tbody>
