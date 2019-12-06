@@ -1,16 +1,19 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django import forms
-
+from .forms import SquirrelForm
 from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Squirrel
 def index(request):
-    Squirrels = Squirrel.objects.all()
-    context = {
-            'Squirrels': Squirrels,
-            }
-    return render(request, 'sightings/all.html', context)
+    
+    squirrels = Squirrel.objects.all()
+    fields = ['Unique_Squirrel_ID','Date','Lat_Long']
+    context={
+        'squirrels':squirrels,
+        'fields':fields,
+    }    
+    return render(request,'sightings/all.html',context)
 
 def squirrel_details(request,Unique_squirrel_ID):
     pet = Squirrel.objects.get(id=Unique_squirrel_ID)
