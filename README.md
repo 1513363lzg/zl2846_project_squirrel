@@ -7,7 +7,9 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 -Map
 
 
+
 -Sightings
+
 For the home page https://sylvan-airship-253800.appspot.com/sightings, it’s the overview of all squirrel sightings in the central park. At the top of website, users can choose to add a new sighting or view some specific stats. Users is also able to click each squirrel id to update a particular sighting.
 
 # The link to the server running our application
