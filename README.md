@@ -1,5 +1,9 @@
 # Squirrel Tracking Application
 
+<div align="center">
+  <img src="https://img.icons8.com/color/96/000000/squirrel.png">">
+</div>
+
 # Overview
 Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application can realize keeping track of all the known squirrel in the Central Park.
 
