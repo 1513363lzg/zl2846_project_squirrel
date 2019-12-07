@@ -126,6 +126,4 @@ class Squirrel(models.Model):
 
     def __str__(self): 
         return self.Unique_squirrel_ID 
-    def get_absolute_url(self):
-        return reverse('', kwargs={'id':self.Unique_squirrel_ID})
 # Create your models here.
