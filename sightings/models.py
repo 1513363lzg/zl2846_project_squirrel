@@ -9,13 +9,14 @@ class Squirrel(models.Model):
             decimal_places=20, 
             ) 
     Longitude = models.DecimalField(
-            help_text=_("Longitude of squirrel"), 
+          help_text=_("Longitude of squirrel"), 
             max_digits=30, 
             decimal_places=20, 
             ) 
     Unique_squirrel_ID = models.CharField(
             help_text=_("Unique squirrel id"),
             max_length=50,
+            primary_key =True,
             )
     Hectare = models.CharField(
             help_text=_("Hectare of squirrel,like 32D"),

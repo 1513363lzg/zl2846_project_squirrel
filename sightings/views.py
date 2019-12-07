@@ -33,7 +33,7 @@ def squirrel_stats(request):
     return render(request, 'sightings/stats.html', context)
 
 def edit_squirrel(request,Unique_squirrel_ID):
-    pet=Squirrel.objects.get(id=Unique_squirrel_ID)
+    pet=Squirrel.objects.get(Unique_squirrel_ID=Unique_squirrel_ID)
     if request.method == 'POST':
         form = SquirrelForm(request.POST,instance=pet)
     # check data with form
