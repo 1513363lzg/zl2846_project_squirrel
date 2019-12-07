@@ -1,20 +1,34 @@
 from django.core.management.base import BaseCommand
 from sightings.models import Squirrel
-import csv
+import csv, datetime
+from django.apps import apps
 
 class Command(BaseCommand):
 
+    def add_arguments(self, parser):
+        parser.add_argument('path', type=str)
+
 
     def handle(self, *args, **kwargs):
-        with open('export_squirrel_data.csv', mode='w') as csvfile:
-            writer = csv.writer(csvfile, delimiter = ',')
-            all_fields = [f.Unique_squirrel_ID for f in Squirrel._meta.get_fields()]
-            fieldnames = [Squirrel._meta.get_field(i).help_text for i in all_fields[1:]]
-            writer.writerow(fieldnames)
-            for j in range(len(Squirrel.objects.all())):
-                rowval=list()
-                for i in all_fields:
-                    if i == 'id': continue
-                    rowval.append(getattr(Squirrel.objects.all()[j],i))
-                writer.writerow(rowval)
-        csvfile.close
+        path = kwargs['path']
+        with open(path, mode='w') as csvfile:
+            names = ['Latitude', 'Longitude', 'Unique_squirrel_ID','Hectare','Shift', 'Date', 'Age', 'Primary_fur_color', 'Location',
+                        'Specific_location',
+                        'Running',
+                        'Chasing',
+                        'Climbing',
+                        'Eating',
+                        'Foraging',
+                        'Other_Activities',
+                        'Kuks',
+                        'Quaas',
+                        'Moans',
+                        'Tail_Flags',
+                        'Tail_Twitches',
+                        'Approaches',
+                        'Indifferent',
+                        'Runs_From']
+            writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+            writer.writerow(names)
+            for i in Squirrel.objects.all():
+                writer.writerow([getattr(i, name) for name in names])
