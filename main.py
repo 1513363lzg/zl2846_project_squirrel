@@ -1,4 +1,4 @@
-from myproject.wsgi import application
+from zl2846_project_squirrel.wsgi import application
 
   
 app = application

@@ -5,7 +5,7 @@ from sightings.models import Squirrel
 
 
 def detail(request):
-    sightings=Squirrel.objects.all()
+    sightings=Squirrel.objects.all()[:100]
     context={
         'sightings':sightings,
     }
