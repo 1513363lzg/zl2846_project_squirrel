@@ -18,23 +18,31 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 -Sightings
 
  -browsing all squirrel sightings
-   -Located at: /sightings
-   -description: It is the home page of sightings. Users have access to information about all squirrel sightings in the central park.
+   
+*Located at: /sightings
+  
+ *description: It is the home page of sightings. Users have access to information about all squirrel sightings in the central park.
 
 
  -editing existing squirrel sightings
-   -Located at: /sightings/<unique-squirrel-id>
-   -description: Users are allowed to click any unique squirrel id on the home page of sightings to link to edit interface. Users are able to update any attribute of the squirrel sighting.
+   
+*Located at: /sightings/<unique-squirrel-id>
+   
+*description: Users are allowed to click any unique squirrel id on the home page of sightings to link to edit interface. Users are able to update any attribute of the squirrel sighting.
 
 
  -creating squirrel sightings
-   -Located at: /sightings/add
-   -description: Users can click the button ‘Add Sighting’ on the top of home page of sightings to link to add page. It allows users to add the new squirrel sighting by themselves.
+   
+*Located at: /sightings/add
+   
+*description: Users can click the button ‘Add Sighting’ on the top of home page of sightings to link to add page. It allows users to add the new squirrel sighting by themselves.
 
 
  -viewing general stats of squirrel sightings
-   -Located at: /sightings/stats
-   -description: Users can click the button ‘Stats Sighting’ on the top of home page of sightings to link to stats page. It provides the stats of five attributes.
+   
+*Located at: /sightings/stats
+   
+*description: Users can click the button ‘Stats Sighting’ on the top of home page of sightings to link to stats page. It provides the stats of five attributes.
 
 # The link to the server running our application
 https://sylvan-airship-253800.appspot.com
