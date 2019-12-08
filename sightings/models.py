@@ -6,22 +6,25 @@ class Squirrel(models.Model):
     Latitude= models.DecimalField( 
             help_text=_("Latitude of squirrel"), 
             max_digits=30, 
-            decimal_places=20, 
+            decimal_places=20,
+             null=True,
             ) 
     Longitude = models.DecimalField(
           help_text=_("Longitude of squirrel"), 
             max_digits=30, 
-            decimal_places=20, 
+            decimal_places=20,
+            null=True,
             ) 
     Unique_squirrel_ID = models.CharField(
             help_text=_("Unique squirrel id"),
             max_length=50,
-            primary_key =True,
+             
             )
     Hectare = models.CharField(
             help_text=_("Hectare of squirrel,like 32D"),
             max_length=10,
-            )
+             null=True,        
+    )
     AM = 'AM'
     PM = 'PM'
     SHIFT_CHOICES = (
@@ -33,7 +36,8 @@ class Squirrel(models.Model):
             choices=SHIFT_CHOICES,
             max_length=15,
             default=AM,
-            )
+             null=True,
+    )
     Date = models.DateField(
              help_text=_('Date'),
              null=True,
