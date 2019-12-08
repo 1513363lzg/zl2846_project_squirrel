@@ -54,10 +54,6 @@
     </button>
   </a>
   <br>
-  <br>
-  <p>Search to view details based on  Unique squirrel ID</p>
-  <input class="form-control" id="myInput" type="text" placeholder="Search..">
-  <br>
   <p>Click on unique_squirrel_id link to edit sighting</p>
   <table class="table table-bordered table-striped">
 
@@ -101,15 +97,6 @@
   <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
 </div>
 
-<script>
-$(document).ready(function(){
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-});
 </script>
 
 </body>

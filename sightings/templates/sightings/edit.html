@@ -13,18 +13,45 @@
       color: black;
       text-align: center;
       font-family: verdana;
-      font-size: 250%;
+      font-size: 150%;
     	}
-	</style>>
+
+	div {
+      font-size: 110%;
+      font-family: courier;
+    }
+     .topnav {
+    overflow: hidden;
+    background-color: #444;
+    padding:0;
+    margin:0;
+    }
+    .topnav a {
+    float: center;
+    display: block;
+    color: gray;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    }
+	</style>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
         <title>Sighting viewing and updating</title>
     </head>
-        <body>
-		<h1 text-align:left>Create a New Squirrel Sighting</h1>
+    <body>
+		<div class="container">
+		<h1 text-align:center>Create a New Squirrel Sighting</h1>
                 <form method="post">
 		{% csrf_token %}
                  {{ form }}
 		<br>
                 <input type="submit" name="save">
                 </form>
+		</div>
         </body>
 </html>

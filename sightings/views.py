@@ -8,7 +8,7 @@ from .models import Squirrel
 def index(request):
     
     squirrels = Squirrel.objects.all()
-    fields = ['Unique_Squirrel_ID','Date','Latitude','Longitude','Hectare','Age','Primary_fur_color','Location','Specific_location','Running','Chasing','Climbing','Eating','Foraging','Other_Activities','Kuks','Quaas','Moans','Tail_Flags','Tail_Twitches','Approaches','Indifferent','Runs_From']
+    fields = ['Unique_squirrel_ID','Date','Latitude','Longitude','Hectare','Age','Primary_fur_color','Location','Specific_location','Running','Chasing','Climbing','Eating','Foraging','Other_Activities','Kuks','Quaas','Moans','Tail_Flags','Tail_Twitches','Approaches','Indifferent','Runs_From']
     context={
         'squirrels':squirrels,
         'fields':fields,
