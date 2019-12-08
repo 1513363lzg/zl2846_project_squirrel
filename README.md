@@ -7,8 +7,22 @@
 # Overview
 Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application can realize keeping track of all the known squirrel in the Central Park.
 
-# Function
-**-Map**
+# Preparation 
+```sh
+# Terminal, Django is a framework  need to install
+pip install django 
+```
+```sh
+# Terminal
+django-admin startproject project 
+```
+```sh
+# Terminal
+python manage.py startapp yourapp
+```
+
+# Applications
+## Map
 
 **-browsing all squirrel sightings**
 
@@ -17,7 +31,7 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
    -description: It shows a map that displays the location of the squirrel sightings. Therefore, it allows users to keep track of all the known squirrels in the Central Park.
 
 
-**-Sightings**
+## Sightings
 
  **-browsing all squirrel sightings**
    
@@ -47,7 +61,8 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 -description: Users can click the button ‘Stats Sighting’ on the top of home page of sightings to link to stats page. It provides the stats of five attributes.
 
 # The link to the server running our application
-https://sylvan-airship-253800.appspot.com
+ - To view 100 squirrels in Map https://sylvan-airship-253800.appspot.com/map
+ - To view Each Squirrel detail information https://sylvan-airship-253800.appspot.com/sightings
 
 # Group Information
 Project Group 28, Section 2
