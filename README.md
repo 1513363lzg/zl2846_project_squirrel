@@ -10,7 +10,7 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 # Function
 -Map
 
- -browsing all squirrel sightings
+ -browsing 100 squirrel location in the central PARK. 
    -Located at: /map
    -description: It shows a map that displays the location of the squirrel sightings. Therefore, it allows users to keep track of all the known squirrels in the Central Park.
 
