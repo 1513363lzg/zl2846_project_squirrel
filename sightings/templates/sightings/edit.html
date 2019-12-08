@@ -1,14 +1,29 @@
 
 <!doctype html>
+
+
 <html>
     <head>
+	<meta charset="UTF-8">
+    	<style>
+    	body{
+      	background-color: #EDEDED;
+    	}
+    	h1 {
+      color: black;
+      text-align: center;
+      font-family: verdana;
+      font-size: 250%;
+    	}
+	</style>>
         <title>Sighting viewing and updating</title>
     </head>
         <body>
+		<h1 text-align:left>Create a New Squirrel Sighting</h1>
                 <form method="post">
 		{% csrf_token %}
-                {{form.as_p}}
-                <br>
+                 {{ form }}
+		<br>
                 <input type="submit" name="save">
                 </form>
         </body>
