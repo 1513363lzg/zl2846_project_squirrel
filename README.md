@@ -19,9 +19,9 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 
  -browsing all squirrel sightings
    
-**Located at: /sightings
+**Located at: /sightings**
   
- **description: It is the home page of sightings. Users have access to information about all squirrel sightings in the central park.
+ **description: It is the home page of sightings. Users have access to information about all squirrel sightings in the central park.**
 
 
  -editing existing squirrel sightings
