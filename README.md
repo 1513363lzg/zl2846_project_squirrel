@@ -3,7 +3,7 @@
 </div>
 
 # Squirrel Tracking Application 
-### author: Zhigeng (casper) Liu, Zhuoran Li UNIs: [zl2846, zl2838] 
+### author: Zhigeng (casper) Liu, Zhuoran Li UNIs: [zl2846, zl2838]  Project Group 28, Section 2
 # Overview
 Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application can realize keeping track of all the known squirrel in the Central Park.
 
