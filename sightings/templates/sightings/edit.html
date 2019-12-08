@@ -8,6 +8,7 @@
     	<style>
     	body{
       	background-color: #EDEDED;
+	text-align:left;
     	}
     	h1 {
       color: black;
@@ -19,8 +20,8 @@
         <title>Sighting viewing and updating</title>
     </head>
         <body>
-		<h1 text-align:left>Create a New Squirrel Sighting</h1>
-                <form method="post">
+		<h1 text-align:center>Create a New Squirrel Sighting</h1>
+             	<form method="post">
 		{% csrf_token %}
                  {{ form }}
 		<br>
