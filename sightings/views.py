@@ -1,5 +1,5 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from django import forms
 from .forms import SquirrelForm
 from django.http import HttpResponse
