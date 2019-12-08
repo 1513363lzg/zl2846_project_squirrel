@@ -9,10 +9,10 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 
 # Dataset
 <a href="https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw">2018 Central Park Squirrel Census.</a> 
- On this page, click API and choose .csv file copy link. 
+ On this page, click API and choose .csv file changes the name and copy link. 
 ```sh
 # get dataset on your local repo
-wget https://data.cityofnewyork.us/resource/vfnx-vebw.csv
+wget https://data.cityofnewyork.us/resource/import_squirrel_data.csv
 ```
    
 # Preparation 
