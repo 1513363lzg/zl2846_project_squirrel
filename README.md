@@ -14,7 +14,8 @@ Based on 2018 Central Park Squirrel Census data, Squirrel Tracking Application c
 # get dataset on your local repo
 wget https://data.cityofnewyork.us/resource/import_squirrel_data.csv
 ```
-   
+ - Hint: if you use this way to import data, the columns of .CSV may be a littel different. So if you use other ways to import data, please change /sightigns/models.py file to match with keys of data from .csv.
+ 
 # Preparation 
 ```sh
 # Terminal, Django is a framework  need to install
