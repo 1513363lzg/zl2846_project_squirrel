@@ -1,7 +1,6 @@
 *.pyc
 __pycache__
 collected-static
-*.sqlite3cd
 map/__pycache__/__init__.cpython-36.pyc
 map/__pycache__/models.cpython-36.pyc
 map/__pycache__/urls.cpython-36.pyc
